@@ -17,9 +17,9 @@ P {
 	font-family: Verdana;
 	font-style: normal;
 	font-weight: normal;
-	color:#000;
+	color: #666666;
 	display: block;
-	font-size: 14px;
+	font-size: 12px;
 	margin-bottom: 10px;
 	line-height: 18px;
 	text-align: left;
@@ -30,9 +30,9 @@ P-ITALIC {
 	font-family: Verdana;
 	font-style: italic;
 	font-weight: normal;
-	color:#000;
+	color: #666666;
 	display: block;
-	font-size: 14px;
+	font-size: 12px;
 	margin-bottom: 10px;
 	line-height: 18px;
 	text-align: left;
