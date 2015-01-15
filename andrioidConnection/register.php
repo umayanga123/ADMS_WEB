@@ -34,6 +34,7 @@ if (!empty($_POST)) {
     //do it this way to increase security, and defend against sql injections
     $query = " SELECT 1 FROM g_user WHERE username = :user";
     $query1 = " SELECT 1 FROM s_user WHERE username = :user";
+    $query2 = " SELECT 1 FROM admin WHERE username = :user";
     //now lets update what :user should be
     $query_params = array(
         ':user' => $_POST['username']
@@ -47,6 +48,9 @@ if (!empty($_POST)) {
         
         $stmt1 = $db->prepare($query1);
         $result1 = $stmt1->execute($query_params);
+        
+        $stmt2 = $db->prepare($query2);
+        $result2 = $stmt2->execute($query_params);
     } catch (PDOException $ex) {
         // For testing, you could use a die and message.
         //die("Failed to run query: " . $ex->getMessage());
@@ -61,7 +65,8 @@ if (!empty($_POST)) {
     //page
     $row = $stmt->fetch();
     $row1 = $stmt1->fetch();
-    if ($row  || $row1) {
+    $row2 = $stmt2->fetch();
+    if ($row  || $row1 || $row2) {
         // For testing, you could use a die and message.
         //die("This username is already in use");
         //You could comment out the above die and use this one:

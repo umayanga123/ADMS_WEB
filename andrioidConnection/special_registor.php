@@ -74,6 +74,7 @@ if (!empty($_POST)) {
         
         
         $query1 = " SELECT 1 FROM s_user WHERE username = :user";
+        $query11 = " SELECT 1 FROM admin WHERE username = :user";
         //now lets update what :user should be
         $query_params1 = array(
             ':user' => $_POST['uname']
@@ -83,6 +84,9 @@ if (!empty($_POST)) {
             // These two statements run the query against your database table.
             $stmt1 = $db->prepare($query1);
             $result1 = $stmt1->execute($query_params1);
+            
+            $stmt11 = $db->prepare($query11);
+            $result11 = $stmt11->execute($query_params1);
         } catch (PDOException $ex) {
             $response["success"] = 0;
             $response["message"] = "Database Error3. Please Try Again!";
@@ -91,7 +95,8 @@ if (!empty($_POST)) {
 
 
         $row1 = $stmt1->fetch();
-        if ($row1) {
+        $row11 = $stmt11->fetch();
+        if ($row1 || $row11) {
             $response["success"] = 0;
             $response["message"] = "I'm sorry, this username is already in use";
             die(json_encode($response));

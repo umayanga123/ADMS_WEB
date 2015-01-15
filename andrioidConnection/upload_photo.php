@@ -42,11 +42,7 @@ if (isset($_FILES['myFile'])) {
     } else {
         move_uploaded_file($_FILES ['myFile'] ['tmp_name'], $dirPath . "/" . $_FILES['myFile']['name']);
     }
-    // Example:
-//    $query = "INSERT INTO plant_images ( deasese_ID ) VALUES (14) ";
-    //    $stmt = $db->prepare($query);
-//    $result = $stmt->execute($query_params);
-    //session_destroy() ;
+  
     echo 'successful';
 }
 ?>
