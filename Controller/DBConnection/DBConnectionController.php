@@ -11,23 +11,22 @@
  *
  * @author user
  */
-
-
 class DBConnectionController {
 
-//put your code here
     function __construct() {
-        //$host = "localhost"; //your database host name
-        //$username = "root"; //your database user name
-        //$password = ""; //your database password
-        //$dbname = "adms";
-        
-        $host = "mysql7.000webhost.com"; //your database host name
-        $username = "a2696819_root"; //your database user name
-        $password = "umayanga123"; //your database password
-        $dbname = "a2696819_mysite";
+        $host = "localhost"; //your database host name
+        $username = "root"; //your database user name
+        $password = ""; //your database password
+        $dbname = "adms";
 
-       
+
+//        $username = "a2696819_root";
+//        $password = "umayanga123";
+//        $host = "mysql7.000webhost.com";
+//        $dbname = "a2696819_mysite";
+
+
+
         $non = mysql_connect($host, $username, $password) or die("Can't connect to server");
         mysql_select_db($dbname) or die("can't connect to database");
     }

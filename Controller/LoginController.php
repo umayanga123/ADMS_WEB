@@ -16,16 +16,13 @@ class LoginController {
         $result = $this->model->getLogin();
 
         if ($result == 'invalidlogin') {
-            echo "<div align='bottom'><font color=red size=2><b>Wrong username or password.<br>Please try again.</b></font></div>";
+            echo "<script type=\"text/javascript\">alert (\"Wrong username or password.Please try again.\");window.location.href='../View/LoginView.php';</script> ";
         } else if ($result == 'adminlogin') {
-           header("location: ../View/Admin/AdminHome.php");
-            //require("../View/Admin/AdminHome.php");
+            header("location: ../View/AdminConsole/Requests.php");
         } else if ($result == 'guserlogin') {
             header("location:../View/GUser/GUserHome.php");
-            //require("../View/GUser/GUserHome.php");
-        }else if ($result == 'suserlogin') {
+        } else if ($result == 'suserlogin') {
             header("location:../View/SUser/SUserHome.php");
-            //require("../View/SUser/SUserHome.php");
         }
     }
 
