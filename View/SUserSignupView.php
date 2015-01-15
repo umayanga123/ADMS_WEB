@@ -1,187 +1,167 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ADMS Special User Sign Up</title>
-<meta name="keywords" content="contact, iron, rush, theme, free templates, website templates, CSS, HTML" />
-<meta name="description" content="Iron Rush, free website template provided by tooplate.com" />
-<link href="../css/tooplate_style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="../css/jquery.lightbox-0.5.css" />    
-    
-<!-- Arquivos utilizados pelo jQuery lightBox plugin -->
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/jquery.lightbox-0.5.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/jquery.lightbox-0.5.css" media="screen" />
-<!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ADMS Special User Sign Up</title>
+        <meta name="keywords" content="contact, iron, rush, theme, free templates, website templates, CSS, HTML" />
+        <meta name="description" content="Iron Rush, free website template provided by tooplate.com" />
+        <link href="../css/tooplate_style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="../css/jquery.lightbox-0.5.css" />    
 
-<!-- Ativando o jQuery lightBox plugin -->
-<script type="text/javascript">
-$(function() {
-    $('#map a').lightBox();
-});
-</script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/jquery.lightbox-0.5.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/jquery.lightbox-0.5.css" media="screen" />
 
-<style type="text/css">
-<!--
-.style3 {font-size: 13px}
-.style4 {font-size: 16px}
--->
-</style>
-</head>
-<body>
-<div id="tooplate_body_wrapper">
-<div id="tooplate_wrapper">
-	<div id="tooplate_top_bar">
-    	<a class="social_btn twitter">&nbsp;</a>
-        <a class="social_btn facebook">&nbsp;</a>
-    </div>	
-    
-    <div id="tooplate_header">
-        <div id="site_title"><h1><img src="../images/onlinelogomaker-092014-1745.png" width="180" height="100" /></h1></div>
-        <div id="tooplate_menu">
-            <ul>
-                <li><a href="LoginView.php">Home</a></li>
-                <li><a href="#">Disease Details</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#" class="current">Contact</a></li>
-            </ul>    	
-        </div> <!-- end of tooplate_menu -->
-    </div> <!-- end of forever header -->
-    
-    <div id="tooplate_middle_subpage">
-    	<h2>Sign UP with ADMS</h2>
-        <p> Sign up as a General user or a Special User</p>	
-	</div> <!-- end of middle -->
-    
-    <div id="tooplate_main">
-    
-    <!--	<div class="col_w960">
-        	<div class="col_w450 float_l">
-                
-			  <div class="col_w200 float_l">
- 					<h4>Map</h4>
-					<div class="cleaner h10"></div>
-					<div id="map">
-		            <a href="images/map_big.jpg" title="Map"><img width="300" height="190" src="images/map_thumb.jpg" alt="Map" /></a>
-					</div>
-		            <div class="cleaner h30"></div>				
-                    <h4>Mailing Address</h4>
-                    <h6><strong>Company Name</strong></h6>
-                    142-115 Maecenas ac eros ut, <br />
-					Curabitur vehicula elit, 15540 <br />
-					Suspendisse euismod <br /><br/>
-					Phone: 010-010-5500 <br />
-					email: <a href="mailto:info@yoursite.com">info@yoursite.com</a>    
-              </div>
-                <div class="cleaner"></div>
-            </div>
--->
-<!--signup-->
-<link rel="stylesheet" type="text/css" href="../css/signup.css" /> 
-<script type="text/javascript" src="../js/jquery.signup.js"></script>
-   
+        <script type="text/javascript">
+            $(function() {
+                $('#map a').lightBox();
+            });
+        </script>
+        <script language="javascript">
 
-     <div class="col_w450 float_r">
-				<div id="contact_form">
-        
-                                    <input type="radio" name="usertype" value="guser" onclick="document.location.href = 'GUserSignupView.php'">
-                                    <span class="style4">General User</span>
-                                    <input type="radio" name="usertype" value="suser" checked>
-                                    <span class="style4">Special User</span>
-      
-<div id="registration-form">
-	<div class='fieldset'>
-    <legend>Sign Up Now!</legend>
-    <form action="../Model/SUserSignupModel.php" method="POST" data-validate="parsley">
-			<div class='row'>
-				<label for='username'>User Name</label>
-			    <span class="style3">
-                                <input type="text" placeholder="User Name" name='username' id='firstname' data-required="true" data-error-message="Your User Name is required"  />
-			    </span></div>
-			<div class='row'>
-				<label for="password">Password</label>
-                                <input type="password" placeholder="Password"  name='password' data-required="true" data-type="password" data-error-message="Password is required" class="input"/>
-			</div>
-			<div class='row'>
-				<label for="cpassword">Confirm your Password</label>
-			
-                                <input type="password" placeholder="Confirm Your Password" name='cpassword' data-required="true" data-error-message="Password must correspond" class="input" />
-                </div>
-                        <div class='row'>
-				<label for='fullname'>Full Name</label>
-			    <span class="style3">
-                                <input type="text" placeholder="Full Name" name='fullname' id='fullname' data-required="true" data-error-message="Your Full Name is required"  />
-			    </span>
+            function testform()
+            {
+                if (document.user.password.value != document.user.cpassword.value) {
+                    alert("Password and confirmation does not match");
+                    return false;
+                }
+            }
+        </script>
+        <style type="text/css">
+            .style2 {
+                color:#FFF;
+                font-style:normal;
+                text-align:justify;
+            }
+            .style3 {font-size: 20px; color: #FFD700;}
+            .style4 {font-size: 20px;color: #FFD700;}
+        </style>
+    </head>
+    <body>
+        <div id="tooplate_body_wrapper">
+            <div id="tooplate_wrapper">
+                <div id="tooplate_top_bar">
+                    <a class="social_btn twitter" href="http://www.twitter.com" target="_blank" >&nbsp;</a>
+                    <a class="social_btn facebook" href="http://www.facebook.com" target="_blank">&nbsp;</a>
+                    <img src="../images/onlinelogomaker-092014-1745.png" width="180" height="100" /></div>	
+
+
+                <div id="tooplate_header">
+                    <div id="site_title"><h1>&nbsp;</h1></div>
+                    <div id="tooplate_menu">
+                        <ul>
+                            <li><a href="LoginView.php">Home</a></li>
+
+                            <li><a href="Contact_us.php" >Contact us</a></li>
+                        </ul>    	
+                    </div> <!-- end of tooplate_menu -->
+                </div> <!-- end of forever header -->
+
+                <div id="tooplate_main" style="height:100px" style="width:900px">
+
+                    <h2 align="center">Join with Agro Disease Management System</h2>
+                    <p class="style2">Sign up and be a part of ADMS for a better service. You can get efficient solutions for your agricultural problems from our specialists and improve your knowledge as well by joining with us. You can either sign up as a General User or a Special User. At any time you can upgrade your profile to a Special User account if you now prefer to sign up as a General User. To have much more effective services try to upgrade your profile as a Special User.</p>	
+                    <p>&nbsp;</p>
+                    <div class="cleaner"></div> </div> <!-- end of middle -->
+
+                <link rel="stylesheet" type="text/css" href="../css/signup.css" /> 
+                <script type="text/javascript" src="../js/jquery.signup.js"></script>
+
+                <div id="contact_form">
+                    <br/>
+
+                    <input type="radio" name="usertype" value="guser" onclick="document.location.href = 'GUserSignupView.php'"/>
+                    <span class="style4">General User</span>
+                    <input type="radio" name="usertype" value="suser" checked>
+                        <span class="style4">Special User</span>
+
+                        <div id="registration-form">
+                            <div class='fieldset'>
+                                <legend>Sign Up Now!</legend>
+                                <form action="../Model/SUserSignupModel.php" method="POST" data-validate="parsley" name="user" onSubmit="return testform()">
+                                    <div class='row'>
+                                        <label for='username'>User Name</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="User Name" name='username' id='firstname' value="" required="required" />
+                                        </span></div>
+                                    <div class='row'>
+                                        <label for="password">Password</label>
+                                        <input type="password" placeholder="Password"  name='password'  data-type="password" value="" required="required" class="input"/>
+                                    </div>
+                                    <div class='row'>
+                                        <label for="cpassword">Confirm your Password</label>
+
+                                        <input type="password" placeholder="Confirm Your Password" name='cpassword' value="" required="required" class="input" />
+                                    </div>
+                                    <div class='row'>
+                                        <label for='fullname'>Full Name</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="Full Name" name='fullname' id='fullname' value="" required="required"/>
+                                        </span>
+                                    </div>
+                                    <div class='row'>
+                                        <label for='depname'>Dep Name</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="Name of the Department" name='depname' id='depname' value="" required="required"/>
+                                        </span>
+                                    </div>
+                                    <div class='row'>
+                                        <label for='depid'>Dep ID</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="Department ID" name='depid' id='depid' value="" required="required" />
+                                        </span>
+                                    </div>
+                                    <div class='row'>
+                                        <label for='tp'>Contact No</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="Contact No" name='contactno' id='tp' value="" required="required" />
+                                        </span>
+                                    </div>
+                                    <div class='row'>
+                                        <label for='email'>E-Mail</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="E-Mail" name='email' id='email' value="" required="required"  />
+                                        </span>
+                                    </div>
+                                    <div class='row'>
+                                        <label for='address'>Address</label>
+                                        <span class="style3">
+                                            <input type="text" placeholder="Address" name='address' id='address' value="" required="required"  />
+                                        </span>
+                                    </div>
+                                    <input type="submit" value="Register"/>
+                                </form>
+                            </div>
                         </div>
-                    <div class='row'>
-				<label for='depname'>Dep Name</label>
-			    <span class="style3">
-                                <input type="text" placeholder="Name of the Department" name='depname' id='depname' data-required="true" data-error-message="Your Department Name is required"  />
-			    </span>
-                    </div>
-                    <div class='row'>
-				<label for='depid'>Dep ID</label>
-			    <span class="style3">
-                                <input type="text" placeholder="Department ID" name='depid' id='depid' data-required="true" data-error-message="Your Department ID is required"  />
-			    </span>
-                    </div>
-                    <div class='row'>
-				<label for='tp'>Contact No</label>
-			    <span class="style3">
-                                <input type="text" placeholder="Contact No" name='contactno' id='tp' data-required="true" data-error-message="Your Contact No is required"  />
-			    </span>
-                    </div>
-                    <div class='row'>
-				<label for='email'>E-Mail</label>
-			    <span class="style3">
-                                <input type="text" placeholder="E-Mail" name='email' id='email' data-required="true" data-error-message="Your E-Mail is required"  />
-			    </span>
-                    </div>
-                    <div class='row'>
-				<label for='address'>Address</label>
-			    <span class="style3">
-                                <input type="text" placeholder="Address" name='address' id='address' data-required="true" data-error-message="Your User Name is required"  />
-			    </span>
-                    </div>
-			<input type="submit" value="Register">
-		</form>
-	</div>
-</div>
-</div>
-</div>
+                </div>
+            </div>
 
 
-<!--end sign up-->
- 
+            <!--end sign up-->
+
+            <div class="cleaner"></div>
+        </div> <!-- end of main -->
+
         <div class="cleaner"></div>
-    </div> <!-- end of main -->
+        <div> </div> <!-- end of forever wrapper -->
+        <div></div> <!-- end of forever body wrapper -->
+        <br>
+            <div id="tooplate_footer_wrapper">
+                <div id="tooplate_footer">
 
-	<div class="cleaner"></div>
-</div> <!-- end of forever wrapper -->
-</div> <!-- end of forever body wrapper -->
+                    <img src="../images/sd/f.gif" height="207" width="963"   />
+                    <div class="cleaner"></div>
+                </div>
+            </div>
 
-<div id="tooplate_footer_wrapper">
-	<div id="tooplate_footer">
-	  <div class="col_w200 float_r col_last">
-    <h4>Contact Us</h4>
-    ADMS Team<br /><br/>
-            Phone: 010-010-5500 <br />
-            email: <a href="mailto:info@yoursite.com">info@yoursite.com</a>
-        </div>
-        
-        <div class="cleaner"></div>
-    </div>
-</div>
+            <div id="tooplate_copyright_wrapper">
+                <div id="tooplate_copyright">
 
-<div id="tooplate_copyright_wrapper">
-	<div id="tooplate_copyright">
-    	
-	Copyright © 2014<a href="#"> A.D.M.S </a> - Designed by <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Group 04 </a></div>
-</div>
-</body>
+                    Copyright © 2014 A.D.M.S - Designed by Group 04 
+
+                </div>
+            </div>
+    </body>
 </html>
 
 
