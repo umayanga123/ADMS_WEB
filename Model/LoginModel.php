@@ -8,40 +8,44 @@ class LoginModel {
     public function getLogin() {
         $name = "";
         $type = "";
-       
+
         if (isset($_POST["submit"]) && $_POST["submit"] == "submit") {
 
             $username = $_POST["username"];
             $password = $_POST["password"];
 
-            $query = "SELECT username, password,'guser' AS type FROM g_user WHERE username = '$username' AND password = '$password' UNION
-                        SELECT username, password,'suser' AS type FROM s_user WHERE username = '$username' AND password = '$password'";
-            
-            $result = mysql_query($query); 
-            
+            $query = "SELECT ID,username, password,'guser' AS type FROM g_user WHERE username = '$username' AND password = '$password' UNION
+                        SELECT ID,username, password,'suser' AS type FROM s_user WHERE username = '$username' AND password = '$password' UNION
+                        SELECT ID,username, password,'admin' AS type FROM admin WHERE username = '$username' AND password = '$password'";
+
+            $result = mysql_query($query);
+
             while ($row = mysql_fetch_array($result)) {
-                $name = $row["0"];
+                $id = $row["ID"];
+                $name = $row["username"];
                 $type = $row["type"];
             }
 
             if (mysql_affected_rows() == 0) {
-               return ("invalidlogin");   
+                return ("invalidlogin");
             } else {
                 $_SESSION["username"] = $name;
-                if ($name == "admin") {
+
+                if ($type == "admin") {
                     $_SESSION["adminname"] = $name;
+                    $_SESSION["username"] = "admin";
+                    $_SESSION['userid'] = 0;
                     return ("adminlogin");
-					
-                }else if($type == "guser"){
+                } else if ($type == "guser") {
+                    $_SESSION['userid'] = $id;
                     return ("guserlogin");
-					
-                }else if($type == "suser"){
+                } else if ($type == "suser") {
+                    $_SESSION["adminname"] = NULL;
+                    $_SESSION['userid'] = $id;
                     return ("suserlogin");
-					
                 }
             }
         }
     }
 
 }
-?>
