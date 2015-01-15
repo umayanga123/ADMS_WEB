@@ -3,11 +3,11 @@
     <header>
 
         <?php
-        echo '<META HTTP-EQUIV="Refresh" Content="S; URL=View/LoginView.php" ';
+        echo '<META HTTP-EQUIV="Refresh" Content="S; URL=View/welcome.php" ';
         ?>
-      
+
     </header>
-    <body></body>
+  
 
 
 </html>
