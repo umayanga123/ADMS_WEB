@@ -1,12 +1,15 @@
 <?php
 
 session_start();
-include("../../Controller/DBConnection/DBConnectionController.php");
+include_once("../../Controller/DBConnection/DBConnectionController.php");
 
 class getDiseaseDetails {
 
     public function confirmDisease() {
 
+         // Create connection
+         $dbConn = new DBConnectionController();
+         $conn = $dbConn->getConnetion();
 
         if (isset($_POST["confirm"])) {
 
@@ -16,7 +19,7 @@ class getDiseaseDetails {
                 $N = count($desease_id);
                 for ($i = 0; $i < $N; $i++) {
                     $query = "UPDATE plant_desease_detail SET type='confirm'  where desease_ID='$desease_id[$i]'";
-                    $result = mysql_query($query)or die(mysql_error());
+                    $result = mysqli_query($conn,$query)or die(mysql_error());
 
                     //newllly add for forum page
                    /*$getdeseasedetai_query = "Select * from  plant_desease_detail where desease_ID='$desease_id[$i]'";
@@ -47,7 +50,7 @@ class getDiseaseDetails {
                 $N = count($desease_id);
                 for ($i = 0; $i < $N; $i++) {
                     $query = "DELETE FROM plant_desease_detail WHERE desease_ID='$desease_id[$i]'";
-                    $result = mysql_query($query)or die(mysql_error());
+                    $result = mysql_query($conn,$query)or die(mysql_error());
                 }
 
                 echo '<meta http-equiv="refresh" content="1; URL=../../View/AdminConsole/DiseaseDetails.php" />';

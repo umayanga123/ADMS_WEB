@@ -1,11 +1,14 @@
 <?php
 session_start();
-include("../../Controller/DBConnection/DBConnectionController.php");
+include_once("../../Controller/DBConnection/DBConnectionController.php");
 
 class getSusers{
     
     public function confirmUser(){
       
+        // Create connection
+        $dbConn = new DBConnectionController();
+        $conn = $dbConn->getConnetion();
        
        if(isset($_POST["confirm"])){
           
@@ -16,7 +19,7 @@ class getSusers{
                  for($i=0; $i < $N; $i++)
                 {
                     $query= "UPDATE s_user SET usertype='ok' WHERE ID='$user_id[$i]'";
-                    $result = mysql_query($query)or die(mysql_error());
+                    $result = mysqli_query($conn,$query)or die(mysqli_error());
                     
                 }
                 echo '<meta http-equiv="refresh" content="1; URL=../../View/AdminConsole/Susers.php" />';
@@ -33,7 +36,7 @@ class getSusers{
                  for($i=0; $i < $N; $i++)
                 {
                     $query= "DELETE FROM s_user WHERE ID='$user_id[$i]'";
-                    $result = mysql_query($query)or die(mysql_error());
+                    $result = mysqli_query($conn,$query)or die(mysqli_error());
                 }
                 
                 echo '<meta http-equiv="refresh" content="1; URL=../../View/AdminConsole/Requests.php" />';
@@ -49,7 +52,7 @@ class getSusers{
                  for($i=0; $i < $N; $i++)
                 {
                     $query= "DELETE FROM g_user WHERE ID='$user_id[$i]'";
-                    $result = mysql_query($query)or die(mysql_error());
+                    $result = mysqli_query($conn,$query)or die(mysqli_error());
                 }
                 
                 echo '<meta http-equiv="refresh" content="1; URL=../../View/AdminConsole/Gusers.php" />';

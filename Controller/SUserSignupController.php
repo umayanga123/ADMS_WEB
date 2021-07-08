@@ -1,7 +1,7 @@
 <?php
 
 include_once("../Model/SUserSignupModel.php");
-include("../Controller/DBConnection/DBConnectionController.php");
+include_once("../Controller/DBConnection/DBConnectionController.php");
 
 class SUserSignupController {
 
@@ -30,13 +30,17 @@ class SUserSignupController {
             $vaddress = $suser->getVaddress();
 
 
+            // Create connection
+            $dbConn = new DBConnectionController();
+            $conn = $dbConn->getConnetion();
+
             $query = "SELECT username,'true' AS success FROM g_user WHERE username = '$vusername' UNION
                         SELECT username,'true' AS success FROM s_user WHERE username = '$vusername'UNION
                         SELECT username,'true' AS success FROM admin WHERE username = '$vusername' ";
 
 
-            $result = mysql_query($query);
-            while ($row = mysql_fetch_array($result)) {
+            $result =  mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_assoc($result)) {
                 $success = $row["success"];
             }
 
@@ -73,10 +77,10 @@ class SUserSignupController {
             } else {
                 $query1 = "INSERT INTO s_user(username,password,fullname,depname,depid,contactno,email,address)"
                         . " VALUES('$vusername','$vpassword','$vfullname','$vdepname','$vdepid','$vcontactno','$vemail','$vaddress')";
-                $result1 = mysql_query($query1);
+                $result1 = mysqli_query($query1);
 
                 if (!$result1) {
-                    $error = mysql_error();
+                    $error = mysqli_error();
                     echo $error;
                     exit;
                 }

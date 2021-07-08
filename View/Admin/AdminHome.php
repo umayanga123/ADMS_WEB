@@ -98,7 +98,7 @@ $(window).load(function() {
 <div id="tooplate_copyright_wrapper">
 	<div id="tooplate_copyright">
 	
-    	Copyright © 2014 <a href="#">A.D.M.S</a> - Designed by <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Group 04</a>
+    	Copyright © 2021 <a href="#">A.D.M.S</a> - Designed by <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Aurora</a>
 		
     </div>
 </div>

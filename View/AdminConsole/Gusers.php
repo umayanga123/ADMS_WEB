@@ -196,14 +196,18 @@ if($_SESSION["username"] == NULL){
 
                                                     <?php
                                                     include("../../Controller/DBConnection/DBConnectionController.php");
-
+                                                    
+                                                    // Create connection
+                                                    $dbConn = new DBConnectionController();
+                                                    $conn = $dbConn->getConnetion();
+                                                   
                                                     $query = "SELECT * FROM g_user ORDER BY id DESC";
-                                                    $result = mysql_query($query);
-                                                    $count = mysql_num_rows($result);
-                                                    if (mysql_affected_rows() == 0) {
+                                                    $result = mysqli_query($conn,$query);
+                                                    $count = mysqli_num_rows($result);
+                                                    if (mysqli_num_rows($result) == 0) {
                                                         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
                                                     } else {
-                                                        while ($row = mysql_fetch_assoc($result)) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
                                                             ?>
 
                                                             <tr>

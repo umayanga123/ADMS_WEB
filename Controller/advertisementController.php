@@ -1,7 +1,7 @@
 <?php
 
 include_once("../Model/advertisementModel.php");
-include("../Controller/DBConnection/DBConnectionController.php");
+include_once("../Controller/DBConnection/DBConnectionController.php");
 
 class advertisementController {
 
@@ -26,12 +26,16 @@ class advertisementController {
 
 
 
+            // Create connection
+           $dbConn = new DBConnectionController();
+           $conn = $dbConn->getConnetion();
+
             $query1 = "INSERT INTO advertisement(statues,c_food,c_agriculture,a_description,price,customer) VALUES('$vstatues','$vc_food','$vc_agriculture','$va_description','$vprice','$customer')";
 
-            $result1 = mysql_query($query1);
+            $result1 = mysqli_query($conn,$query1);
 
             if (!$result1) {
-                $error = mysql_error();
+                $error = mysqli_error();
                 echo $error;
                 exit;
             } else {

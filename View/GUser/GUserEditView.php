@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../Controller/DBConnection/DBConnectionController.php");
+include_once("../../Controller/DBConnection/DBConnectionController.php");
 
 if($_SESSION["username"] == NULL){
     header("location:../../Controller/logout.php");
@@ -11,21 +11,26 @@ if($_SESSION["username"] == NULL){
 $name = $_SESSION["username"];
 $_SESSION["edit_name"] = $name;
 
+// Create connection
+$dbConn = new DBConnectionController();
+$conn = $dbConn->getConnetion();
 
 $query = "SELECT username, password FROM g_user WHERE username='$name'";
-$result = mysql_query($query);
+$result = mysqli_query($conn,$query);
 if (!$result) {
-    echo (mysql_error());
+    echo (mysqli_error());
 }
 
 
-$row = mysql_fetch_array($result);
+$row = mysqli_fetch_assoc($result);
 $un = $row["username"];
 $pw = $row["password"];
 
 
 
 if (isset($_POST["sub"])) {
+
+
 
     $user_name = $_POST["username"];
     $P_W = $_POST["password"];
@@ -34,9 +39,9 @@ if (isset($_POST["sub"])) {
         $queryT = "SELECT username,'true' AS success FROM g_user WHERE username = '$user_name' UNION
                         SELECT username,'true' AS success FROM s_user WHERE username = '$user_name'";
 
-        $result = mysql_query($queryT);
+        $result = mysqli_query($conn,$queryT);
 
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $success = $row["success"];
         }
         if ($success === "true") {
@@ -70,7 +75,7 @@ if (isset($_POST["sub"])) {
             $query2 = "UPDATE g_user SET username='$user_name', password='$P_W' where username='$name'";
 
 
-            $result2 = mysql_query($query2);
+            $result2 = mysqli_query($conn,$query2);
             if (!$result2) {
                 echo (mysql_error());
                 exit();
@@ -85,9 +90,9 @@ if (isset($_POST["sub"])) {
         $query2 = "UPDATE g_user SET username='$user_name', password='$P_W' where username='$name'";
 
 
-        $result2 = mysql_query($query2);
+        $result2 = mysqli_query($conn,$query2);
         if (!$result2) {
-            echo (mysql_error());
+            echo (mysqli_error());
             exit();
         }
 

@@ -13,11 +13,14 @@
  */
 class DBConnectionController {
 
-    function __construct() {
-        $host = "localhost"; //your database host name
-        $username = "root"; //your database user name
-        $password = ""; //your database password
-        $dbname = "adms";
+   private $con;
+   
+   function getConnetion()
+   {
+    $host = "localhost"; //your database host name
+    $username = "root"; //your database user name
+    $password = ""; //your database password
+    $dbname = "adms";
 
 
 //        $username = "a2696819_root";
@@ -25,15 +28,19 @@ class DBConnectionController {
 //        $host = "mysql7.000webhost.com";
 //        $dbname = "a2696819_mysite";
 
+    // Create connection
+    $con = new mysqli($host, $username, $password,$dbname);
 
-
-        $non = mysql_connect($host, $username, $password) or die("Can't connect to server");
-        mysql_select_db($dbname) or die("can't connect to database");
+    // Check connection
+    if ($con->connect_error) {
+         die("Connection failed: " . $con->connect_error);
     }
-
+    
+     return $con;
+   }  
 }
 
 $dbConnection = new DBConnectionController();
 
 
-
+?>

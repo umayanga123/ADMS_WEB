@@ -311,7 +311,7 @@ if ($_SESSION["username"] == NULL) {
             <div id="tooplate_copyright_wrapper">
                 <div id="tooplate_copyright">
 
-                    Copyright © 2014 A.D.M.S - Designed by Group 04 
+                    Copyright © 2021 A.D.M.S - Designed
 
                 </div>
             </div>

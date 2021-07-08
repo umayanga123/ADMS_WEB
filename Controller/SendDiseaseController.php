@@ -1,6 +1,6 @@
 <?php
 
-include("../Controller/DBConnection/DBConnectionController.php");
+include_once("../Controller/DBConnection/DBConnectionController.php");
 
 class SendDiseaseController {
 
@@ -28,16 +28,19 @@ class SendDiseaseController {
             $found_date = $disease->getfound_date();
             $discrip = $disease->getdiscrip();
 
+            // Create connection
+            $dbConn = new DBConnectionController();
+            $conn = $dbConn->getConnetion();
 
             $query1 = "INSERT INTO plant_desease_detail(plant_name, desease_type, district, region, weather_condition,"
                     . " soil_condition, date, user_comment,user_name)"
                     . " VALUES('$p_name','$disease_type','$district','$reigon','$w_condition','$s_condition',"
                     . "'$found_date','$discrip','$_SESSION[username]')";
 
-            $result1 = mysql_query($query1);
+            $result1 = mysqli_query($conn,$query1);
 
             if (!$result1) {
-                $error = mysql_error();
+                $error = mysqli_error();
                 echo $error;
                 exit;
             }

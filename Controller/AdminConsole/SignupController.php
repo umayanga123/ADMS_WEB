@@ -1,7 +1,7 @@
 <?php
 
 include_once("../../Model/AdminConsole/SignupModel.php");
-include("../../Controller/DBConnection/DBConnectionController.php");
+include_once("../../Controller/DBConnection/DBConnectionController.php");
 
 class SignupController {
 
@@ -19,8 +19,12 @@ class SignupController {
                         SELECT username,'true' AS success FROM s_user WHERE username = '$vusername'UNION
                         SELECT username,'true' AS success FROM admin WHERE username = '$vusername' ";
 
-            $result = mysql_query($query);
-            while ($row = mysql_fetch_array($result)) {
+           // Create connection
+           $dbConn = new DBConnectionController();
+           $conn = $dbConn->getConnetion();
+            
+            $result = mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_assoc($result)) {
                 $success = $row["success"];
             }
 
@@ -55,10 +59,10 @@ class SignupController {
                 exit;
             } else {
                 $query1 = "INSERT INTO admin(username,password)VALUES('$vusername','$vpassword')";
-                $result1 = mysql_query($query1);
+                $result1 = mysqli_query($conn,$query1);
 
                 if (!$result1) {
-                    $error = mysql_error();
+                    $error = mysqli_error();
                     echo $error;
                     exit;
                 }
